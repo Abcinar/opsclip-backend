@@ -2,14 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api import router
 from db.database import Base, engine
-import logging
 
-logger = logging.getLogger(__name__)
-
-try:
-    Base.metadata.create_all(bind=engine)
-except Exception as exc:
-    logger.warning("Database init skipped at startup: %s", exc)
+# Tabloları oluştur
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Lumina Clip API",
