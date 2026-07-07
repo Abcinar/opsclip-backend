@@ -1,0 +1,9 @@
+{
+  "build": {
+    "builder": "DOCKERFILE"
+  },
+  "deploy": {
+    "startCommand": "celery -A core.celery_app worker --loglevel=info --concurrency=2",
+    "restartPolicyType": "ON_FAILURE"
+  }
+}
